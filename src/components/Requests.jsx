@@ -12,7 +12,7 @@ const Requests = () => {
     try {
       // eslint-disable-next-line no-unused-vars
       const res = await axios.post(
-        BASE_URL + "request/review/" + status + "/" + _id,
+        BASE_URL + "/request/review/" + status + "/" + _id,
         {},
         {
           withCredentials: true,
@@ -27,7 +27,7 @@ const Requests = () => {
 
   const requestsFetch = async () => {
     try {
-      const res = await axios.get(BASE_URL + "user/requests/received", {
+      const res = await axios.get(BASE_URL + "/user/requests/received", {
         withCredentials: true,
       });
       console.log(res);

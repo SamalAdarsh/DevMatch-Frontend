@@ -15,7 +15,7 @@ const ContactUs = () => {
           <h2 className="text-xl font-semibold mb-2">Email Support</h2>
           <p className="mb-4">
             <a href="mailto:support@devmatchs.in" className="text-primary hover:underline">
-              support@devmatchs.in
+              codewithadarsh007@gmail.com
             </a>
             <br />
             <span className="text-sm text-gray-400">We aim to respond to all inquiries within 24-48 hours.</span>
@@ -24,9 +24,9 @@ const ContactUs = () => {
           <h2 className="text-xl font-semibold mb-2">Registered Address</h2>
           <p className="text-gray-300">
             DevMatch<br />
-            [Your House/Building Number], [Your Street/Area Name]<br />
-            Pimpri-Chinchwad, Maharashtra<br />
-            India - [Your PIN Code]
+            At Near Mahatab Road, Kansbahal<br />
+           Block: Rajgangpur, Dist: Sundargarh<br />
+            Odisha,India - 770034
           </p>
         </div>
       </div>

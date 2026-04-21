@@ -11,6 +11,7 @@ import ContactUs from "./components/legal/ContactUs";
 import PrivacyPolicy from "./components/legal/PrivacyPolicy";
 import TermsAndConditions from "./components/legal/TermsAndConditions";
 import RefundPolicy from "./components/legal/RefundPolicy";
+import Premium from "./components/Premium";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
               <Route path="/privacy" element={<PrivacyPolicy />} />
               <Route path="/terms" element={<TermsAndConditions />} />
               <Route path="/refund" element={<RefundPolicy />} />
+              <Route path="/premium" element={<Premium />} />
             </Route>
           </Routes>
         </BrowserRouter>

@@ -17,7 +17,7 @@ const Premium = () => {
       key: keyId,
       amount,
       currency,
-      name: "Dev Tinder",
+      name: "DevMatch",
       description: "Connect to other developers",
       order_id: orderId,
       prefill: {
@@ -45,7 +45,7 @@ const Premium = () => {
             <li> - 3 months</li>
           </ul>
           <button
-            onClick={() => handleBuyClick("gold")}
+            onClick={() => handleBuyClick("silver")}
             className="btn btn-secondary"
           >
             Buy Silver

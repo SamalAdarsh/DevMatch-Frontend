@@ -1,14 +1,37 @@
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
+import {  useEffect, useState } from "react";
 
 const Premium = () => {
+  const [isUserPremium, setIsUserPremium] = useState(false);
+
+const verifyPremiumUser = async () => {
+    try {
+      const res = await axios.get(BASE_URL + "/premium/verify", {
+        withCredentials: true,
+      });
+
+      if (res.data.isPremium) {
+        setIsUserPremium(true);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+useEffect(() => {
+    // 2. Add this exact comment to silence the linter's false alarm
+    // eslint-disable-next-line
+    verifyPremiumUser();
+  }, []);
+
   const handleBuyClick = async (type) => {
     const order = await axios.post(
       BASE_URL + "/payment/create",
       {
         membershipType: type,
       },
-      { withCredentials: true }
+      { withCredentials: true },
     );
 
     const { amount, keyId, currency, notes, orderId } = order.data;
@@ -28,12 +51,16 @@ const Premium = () => {
       theme: {
         color: "#F37254",
       },
+      handler: verifyPremiumUser,
     };
 
     const rzp = new window.Razorpay(options);
     rzp.open();
   };
-  return (
+
+  return isUserPremium ? (
+    "You're are already a premium user"
+  ) : (
     <div className="m-10">
       <div className="flex w-full">
         <div className="card bg-base-300 rounded-box grid h-80 grow place-items-center">

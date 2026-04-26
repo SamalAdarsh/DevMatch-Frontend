@@ -1,4 +1,4 @@
-import {  useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { createSocketConnection } from "../utils/socket";
 import { useSelector } from "react-redux";
@@ -7,7 +7,7 @@ import { BASE_URL } from "../utils/constants";
 
 const Chat = () => {
   const { targetUserId } = useParams();
-  const [messages, setMessages] = useState([{text:"Hello"}]);
+  const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
   const user = useSelector((store) => store.user);
   const userId = user?._id;
@@ -67,7 +67,7 @@ const Chat = () => {
     });
     setNewMessage("");
   };
-console.log(targetUserId);
+
   return (
     <div className="w-1/2 mx-auto border border-gray-600 m-5 h-[70vh] flex flex-col">
       <h1 className="p-5 border-b border-gray-600">Chat</h1>
@@ -80,15 +80,12 @@ console.log(targetUserId);
                 "chat " +
                 (user.firstName === msg.firstName ? "chat-end" : "chat-start")
               }
-
-            // className="chat chat-start"
             >
               <div className="chat-header">
                 {`${msg.firstName}  ${msg.lastName}`}
-                {/* SP Aslam */}
                 <time className="text-xs opacity-50"> 2 hours ago</time>
               </div>
-              <div className="chat-bubble">You were the chosen one</div>
+              <div className="chat-bubble">{msg.text}</div>
               <div className="chat-footer opacity-50">Seen</div>
             </div>
           );
@@ -100,9 +97,7 @@ console.log(targetUserId);
           onChange={(e) => setNewMessage(e.target.value)}
           className="flex-1 border border-gray-500 text-white rounded p-2"
         ></input>
-        <button 
-        onClick={sendMessage} 
-        className="btn btn-secondary">
+        <button onClick={sendMessage} className="btn btn-secondary">
           Send
         </button>
       </div>
